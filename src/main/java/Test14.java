@@ -3,6 +3,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -32,7 +34,7 @@ public class Test14 {
         int count = elementList.size();
         for (int i = 0; i < count; i++){
             elementList.get(i).click();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            wait.until(ExpectedConditions.numberOfWindowsToBe(2));
             Set<String> oldWindows = driver.getWindowHandles();
             oldWindows.remove(mainWindow);
             String newWindow = oldWindows.iterator().next();
