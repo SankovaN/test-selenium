@@ -30,10 +30,10 @@ public class Test10 {
         String PriceColor = driver.findElement(By.cssSelector("div#box-campaigns .campaign-price")).getCssValue("color");
         String PriceColorFont = driver.findElement(By.cssSelector("div#box-campaigns .campaign-price")).getTagName();
         String PriceSize = driver.findElement(By.cssSelector("div#box-campaigns .campaign-price")).getCssValue("font-size").substring(0,2);
-        String oldPriceSize = driver.findElement(By.cssSelector("div#box-campaigns .regular-price")).getCssValue("font-size").substring(0,2);
+        String oldPriceSize = driver.findElement(By.cssSelector("div#box-campaigns .regular-price")).getCssValue("font-size").substring(0,4);
 
-        int intPriceSize = Integer.parseInt(PriceSize);
-        int intOldPriceSize = Integer.parseInt(oldPriceSize);
+        double intPriceSize = Double.parseDouble(PriceSize);
+        double intOldPriceSize = Double.parseDouble(oldPriceSize);
 
 
         //цена на главной странице серая
@@ -90,7 +90,6 @@ public class Test10 {
 
         int intPriceSize1 = Integer.parseInt(PriceSize1);
         int intOldPriceSize1 = Integer.parseInt(oldPriceSize1);
-
 
 
         if (txt.equals(txt1))
