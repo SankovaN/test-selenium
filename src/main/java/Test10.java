@@ -29,8 +29,12 @@ public class Test10 {
         String oldPriceDecoration = driver.findElement(By.cssSelector("div#box-campaigns .regular-price")).getCssValue("text-decoration");
         String PriceColor = driver.findElement(By.cssSelector("div#box-campaigns .campaign-price")).getCssValue("color");
         String PriceColorFont = driver.findElement(By.cssSelector("div#box-campaigns .campaign-price")).getTagName();
-        String PriceSize = driver.findElement(By.cssSelector("div#box-campaigns .campaign-price")).getCssValue("font-size");
-        String oldPriceSize = driver.findElement(By.cssSelector("div#box-campaigns .regular-price")).getCssValue("font-size");
+        String PriceSize = driver.findElement(By.cssSelector("div#box-campaigns .campaign-price")).getCssValue("font-size").substring(0,2);
+        String oldPriceSize = driver.findElement(By.cssSelector("div#box-campaigns .regular-price")).getCssValue("font-size").substring(0,2);
+
+        int intPriceSize = Integer.parseInt(PriceSize);
+        int intOldPriceSize = Integer.parseInt(oldPriceSize);
+
 
         //цена на главной странице серая
         Color color = Color.fromString(oldPriceColor);
@@ -66,7 +70,7 @@ public class Test10 {
             System.out.println("акционная цена на главной странице не жирная");
 
         //акционная цена на главной странице крупнее, чем обычная
-        if (PriceSize.compareTo(oldPriceSize) > 0)
+        if (intPriceSize > intOldPriceSize)
             System.out.println("акционная цена на главной странице крупнее, чем обычная");
         else
             System.out.println("акционная цена на главной странице меньше, чем обычная");
@@ -81,8 +85,12 @@ public class Test10 {
         String oldPriceDecoration1 = driver.findElement(By.cssSelector("#box-product .regular-price")).getCssValue("text-decoration");
         String PriceColor1 = driver.findElement(By.cssSelector("#box-product .campaign-price")).getCssValue("color");
         String PriceColorFont1 = driver.findElement(By.cssSelector("#box-product .campaign-price")).getTagName();
-        String PriceSize1 = driver.findElement(By.cssSelector("#box-product .campaign-price")).getCssValue("font-size");
-        String oldPriceSize1 = driver.findElement(By.cssSelector("#box-product .regular-price")).getCssValue("font-size");
+        String PriceSize1 = driver.findElement(By.cssSelector("#box-product .campaign-price")).getCssValue("font-size").substring(0,2);
+        String oldPriceSize1 = driver.findElement(By.cssSelector("#box-product .regular-price")).getCssValue("font-size").substring(0,2);
+
+        int intPriceSize1 = Integer.parseInt(PriceSize1);
+        int intOldPriceSize1 = Integer.parseInt(oldPriceSize1);
+
 
 
         if (txt.equals(txt1))
@@ -134,7 +142,7 @@ public class Test10 {
             System.out.println("акционная цена на странице продукта не жирная");
 
         //акционная цена на странице продукта крупнее, чем обычная
-        if (PriceSize1.compareTo(oldPriceSize1) > 0)
+        if (intPriceSize1 > intOldPriceSize1)
             System.out.println("акционная цена на странице продукта крупнее, чем обычная");
         else
             System.out.println("акционная цена на странице продукта меньше, чем обычная");
